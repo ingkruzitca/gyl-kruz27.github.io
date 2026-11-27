@@ -100,7 +100,7 @@ body {
 }
 /* ✏️ RETO 3: cambia -10px por -25px, o agrega rotate(2deg) */
 .tarjeta:hover {
-  transform: translateY(-10px);
+  transform: translateY(-25px) rotate(2deg);
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
 }
 .tarjeta-emoji { font-size: 3rem; margin-bottom: 0.5rem; transition: transform 0.4s; }
