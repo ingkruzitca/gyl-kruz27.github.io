@@ -5,10 +5,10 @@
 /* ✏️ RETO 3: cambia estos colores y tu página cambia completa.
    Prueba otros en: https://htmlcolorcodes.com/es/ */
 :root {
-  --color-1: #6a11cb;      /* morado */
-  --color-2: #2575fc;      /* azul */
-  --color-3: #ff6a88;      /* rosado */
-  --velocidad-fondo: 12s;  /* ✏️ RETO 3: más pequeño = fondo más rápido */
+  --color-1: #232526;      /* morado */
+  --color-2: #414345;      /* azul */
+  --color-3: #8e2de2;      /* rosado */
+  --velocidad-fondo: 7s;  /* ✏️ RETO 3: más pequeño = fondo más rápido */
 }
 
 body {
