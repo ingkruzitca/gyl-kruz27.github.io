@@ -1,0 +1,136 @@
+/* =========================================================
+   ESTILOS DE MI PÁGINA
+   ========================================================= */
+
+/* ✏️ RETO 3: cambia estos colores y tu página cambia completa.
+   Prueba otros en: https://htmlcolorcodes.com/es/ */
+:root {
+  --color-1: #6a11cb;      /* morado */
+  --color-2: #2575fc;      /* azul */
+  --color-3: #ff6a88;      /* rosado */
+  --velocidad-fondo: 12s;  /* ✏️ RETO 3: más pequeño = fondo más rápido */
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ---------- Barra de navegación con efecto vidrio ---------- */
+.barra {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+[data-bs-theme="dark"] .barra { background: rgba(20, 22, 30, 0.8); }
+
+/* ---------- Portada con fondo degradado ANIMADO ---------- */
+.portada {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background: linear-gradient(-45deg, var(--color-1), var(--color-2), var(--color-3), var(--color-1));
+  background-size: 400% 400%;
+  animation: moverFondo var(--velocidad-fondo) ease infinite;
+  padding-top: 70px;
+}
+
+@keyframes moverFondo {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.avatar {
+  font-size: 5.5rem;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Animación: el avatar flota */
+.flotar { animation: flotar 3s ease-in-out infinite; }
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-15px); }
+}
+
+.portada h1, .portada .lead { color: #fff; }
+
+.resaltado {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0 0.3em;
+  border-radius: 0.3em;
+}
+
+.cursor { animation: parpadeo 0.8s step-end infinite; font-weight: 300; }
+@keyframes parpadeo { 50% { opacity: 0; } }
+
+.sombra { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); transition: transform 0.2s; }
+.sombra:hover { transform: scale(1.06); }
+
+/* ---------- Secciones ---------- */
+.titulo-seccion {
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--color-1), var(--color-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-bs-theme="dark"] .titulo-seccion {
+  background-image: linear-gradient(90deg, var(--color-3), #8ec5fc);
+}
+
+.fondo-suave { background: var(--bs-tertiary-bg); }
+
+/* ---------- Tarjetas: se elevan al pasar el mouse ---------- */
+.tarjeta {
+  border: 0;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+/* ✏️ RETO 3: cambia -10px por -25px, o agrega rotate(2deg) */
+.tarjeta:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
+}
+.tarjeta-emoji { font-size: 3rem; margin-bottom: 0.5rem; transition: transform 0.4s; }
+.tarjeta:hover .tarjeta-emoji { transform: scale(1.3) rotate(-10deg); }
+
+/* ---------- Contadores ---------- */
+.contador {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-2);
+}
+
+/* ---------- Aparecer al hacer scroll (lo activa JavaScript) ---------- */
+.aparecer {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.aparecer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pie {
+  background: linear-gradient(90deg, var(--color-1), var(--color-2));
+  color: #fff;
+}
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .aparecer { opacity: 1; transform: none; }
+}
